@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take a Break | gurnoorsingh.in</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030712; /* Deepest gray/black */
+            color: #f8fafc;
+            overflow: hidden;
+        }
+        
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animated gradient text */
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex items-center justify-center font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- Background Animated Blobs -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Particle Canvas (JS logic below) -->
+    <canvas id="particleCanvas" class="absolute inset-0 z-0 opacity-50 pointer-events-none"></canvas>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 w-full max-w-4xl px-6 animate-fade-in-up">
+        <div class="glass-card rounded-3xl p-10 md:p-16 text-center transform transition-all hover:scale-[1.01] duration-500">
+            
+            <!-- Icon/Logo Area -->
+            <div class="flex justify-center mb-8">
+                <div class="relative w-20 h-20 flex items-center justify-center rounded-full bg-gray-900 border border-gray-800 shadow-[0_0_40px_rgba(167,139,250,0.2)]">
+                    <i data-feather="coffee" class="text-purple-400 w-8 h-8 animate-pulse-slow"></i>
+                </div>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                We will study all the <br class="hidden md:block" />
+                <span class="text-gradient">AI in class.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-lg md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed mb-10">
+                The platform is currently resting. Don't worry about learning ahead of time. For now, just <strong class="text-white font-semibold">chill and enjoy</strong> your day. 
+            </p>
+
+            <!-- Interactive 'Chill' Element -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="triggerConfetti()" class="group relative px-8 py-4 bg-white text-gray-950 font-semibold rounded-full overflow-hidden transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <i data-feather="wind" class="w-5 h-5"></i>
+                        Take a Deep Breath
+                    </span>
+                </button>
+            </div>
+
+            <!-- Footer / Branding -->
+            <div class="mt-16 pt-8 border-t border-gray-800/50 flex flex-col items-center gap-2">
+                <p class="text-sm text-gray-500 tracking-widest uppercase font-semibold">
+                    gurnoorsingh.in
+                </p>
+                <p class="text-xs text-gray-600 tracking-widest uppercase">
+                    Product by Synaptix Technologies &bull; Built by Gurnoor Singh
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script to render icons and handle animations -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Simple Confetti/Chill Effect when button is clicked
+        function triggerConfetti() {
+            const button = document.querySelector('button');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = `<span class="relative z-10 flex items-center gap-2"><i data-feather="smile" class="w-5 h-5"></i> Relaxing...</span>`;
+            feather.replace();
+            
+            // Create a burst of floating particles
+            for(let i = 0; i < 30; i++) {
+                createParticle();
+            }
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                feather.replace();
+            }, 2000);
+        }
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.left = '50%';
+            particle.style.top = '60%';
+            particle.style.width = Math.random() * 8 + 4 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = ['#60a5fa', '#a78bfa', '#f472b6', '#ffffff'][Math.floor(Math.random() * 4)];
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '50';
+            
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 50 + Math.random() * 100;
+            const tx = Math.cos(angle) * velocity;
+            const ty = Math.sin(angle) * velocity - 100;
+
+            particle.animate([
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+            ], {
+                duration: 1000 + Math.random() * 1000,
+                easing: 'cubic-bezier(0, .9, .57, 1)'
+            });
+
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 2000);
+        }
+
+        // Ambient Background Particles
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class AmbientParticle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2;
+                this.speedY = -Math.random() * 0.5 - 0.1;
+                this.opacity = Math.random() * 0.5;
+            }
+            update() {
+                this.y += this.speedY;
+                if (this.y < 0) {
+                    this.y = height;
+                    this.x = Math.random() * width;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 100; i++) {
+            particles.push(new AmbientParticle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    </script>
+</body>
+</html>
