@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A private AI learning ecosystem. Real learning happens inside the experience." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Gurnoor Singh — AI Learning Ecosystem" />
+  <meta property="og:description" content="A guided, immersive environment for learning AI. Not a platform. An experience." />
+  <meta property="og:url" content="https://gurnoorsingh.in" />
+  <title>Gurnoor Singh — AI Learning Ecosystem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       AMBIENT CANVAS — animated background
+  ═══════════════════════════════════════════ -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Primary navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__wordmark" aria-label="Gurnoor Singh — Home">
+        <span class="nav__name">Gurnoor Singh</span>
+        <span class="nav__dot" aria-hidden="true"></span>
+        <span class="nav__domain">in</span>
+      </a>
+      <div class="nav__status" aria-label="System status: Classroom active">
+        <span class="nav__status-dot" aria-hidden="true"></span>
+        <span class="nav__status-text">Classroom Active</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="home" aria-label="Hero introduction">
+    <div class="hero__container">
+
+      <div class="hero__eyebrow reveal" data-delay="0">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span class="eyebrow-text">Private Learning Ecosystem</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+
+      <h1 class="hero__headline reveal" data-delay="1">
+        Intelligence<br />
+        <em>is not consumed.</em><br />
+        It is built, together.
+      </h1>
+
+      <p class="hero__subtext reveal" data-delay="2">
+        AI was never meant to be a sequence of videos.<br class="break-desktop" />
+        The real thing is messier, more alive, and deeply collaborative.
+      </p>
+
+      <div class="hero__cta-row reveal" data-delay="3">
+        <a href="#inside" class="cta-primary" aria-label="Learn what happens inside the experience">
+          Experience Begins In-Class
+          <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <span class="cta-note">Currently: limited access</span>
+      </div>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll-hint reveal" data-delay="4" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — PHILOSOPHY
+  ═══════════════════════════════════════════ -->
+  <section class="philosophy" id="philosophy" aria-label="Philosophy and vision">
+    <div class="section-container">
+
+      <div class="philosophy__left reveal" data-delay="0">
+        <span class="section-label">Philosophy</span>
+        <h2 class="section-headline">
+          Systems don't reveal themselves<br />through screens alone.
+        </h2>
+      </div>
+
+      <div class="philosophy__right reveal" data-delay="1">
+        <p class="philosophy__body">
+          Learning to think with AI is not the same as using AI tools. The difference lives in the room — in the moment a model does something unexpected, and a group of people leans in together to understand why.
+        </p>
+        <p class="philosophy__body">
+          This ecosystem was built around that moment. Guided sessions. Structured experiments. Environments where the system and the student both respond.
+        </p>
+        <div class="philosophy__rule" aria-hidden="true"></div>
+        <p class="philosophy__quote">
+          "Real learning happens when the environment pushes back."
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — WHAT HAPPENS INSIDE
+  ═══════════════════════════════════════════ -->
+  <section class="inside" id="inside" aria-label="What happens inside the learning environment">
+    <div class="section-container">
+
+      <div class="inside__header reveal" data-delay="0">
+        <span class="section-label">Inside The Room</span>
+        <h2 class="section-headline centered">
+          The curriculum is the conversation.
+        </h2>
+        <p class="inside__intro">
+          Every session is structured around doing — not watching.
+        </p>
+      </div>
+
+      <div class="inside__grid">
+
+        <article class="inside-card reveal" data-delay="1" aria-label="Collaborative AI systems">
+          <div class="inside-card__number" aria-hidden="true">01</div>
+          <h3 class="inside-card__title">Collaborative AI Systems</h3>
+          <p class="inside-card__body">
+            Students interact with language models, agents, and pipelines in real-time — questioning outputs, debugging assumptions, and building intuition together.
+          </p>
+        </article>
+
+        <article class="inside-card reveal" data-delay="2" aria-label="Robotics and physical systems">
+          <div class="inside-card__number" aria-hidden="true">02</div>
+          <h3 class="inside-card__title">Robotics &amp; Physical Systems</h3>
+          <p class="inside-card__body">
+            Machines in the room. Sensors. Actuators. The gap between code and physical reality collapses when students can see and touch what they're building.
+          </p>
+        </article>
+
+        <article class="inside-card reveal" data-delay="3" aria-label="Structured experimentation">
+          <div class="inside-card__number" aria-hidden="true">03</div>
+          <h3 class="inside-card__title">Structured Experimentation</h3>
+          <p class="inside-card__body">
+            Hypotheses formed. Experiments run. Models stress-tested. The scientific method applied to AI — with an instructor who can redirect the moment it gets interesting.
+          </p>
+        </article>
+
+        <article class="inside-card reveal" data-delay="4" aria-label="Collective intelligence and live simulation">
+          <div class="inside-card__number" aria-hidden="true">04</div>
+          <h3 class="inside-card__title">Collective Intelligence</h3>
+          <p class="inside-card__body">
+            When twenty people are working on the same system simultaneously, the classroom becomes a distributed mind. Insights emerge from the group that no individual could reach alone.
+          </p>
+        </article>
+
+        <article class="inside-card reveal" data-delay="5" aria-label="Live system simulation">
+          <div class="inside-card__number" aria-hidden="true">05</div>
+          <h3 class="inside-card__title">Live Simulations</h3>
+          <p class="inside-card__body">
+            Dynamic environments that evolve in response to students. Decision trees. Generative loops. Systems that change as the group interacts — impossible to replicate alone at home.
+          </p>
+        </article>
+
+        <article class="inside-card reveal" data-delay="6" aria-label="Mentor-driven exploration">
+          <div class="inside-card__number" aria-hidden="true">06</div>
+          <h3 class="inside-card__title">Mentor-Driven Exploration</h3>
+          <p class="inside-card__body">
+            Direction without rigid scripts. A mentor who has built these systems professionally — navigating ambiguity in real-time, not reading from a slide deck.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — IMMERSIVE EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section class="immersive" id="experience" aria-label="Immersive learning experience description">
+    <div class="section-container">
+
+      <div class="immersive__inner reveal" data-delay="0">
+        <span class="section-label">The Experience</span>
+
+        <blockquote class="immersive__pull">
+          You don't learn how a system thinks<br />
+          by reading about it.
+        </blockquote>
+
+        <div class="immersive__panels" role="list">
+
+          <div class="immersive-panel" role="listitem">
+            <div class="immersive-panel__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="immersive-panel__title">Real Environments</h3>
+            <p class="immersive-panel__body">Custom-built lab setups. Hardware and software connected. The classroom is a system, not just a room.</p>
+          </div>
+
+          <div class="immersive-panel" role="listitem">
+            <div class="immersive-panel__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="immersive-panel__title">Guided Discovery</h3>
+            <p class="immersive-panel__body">Curated pathways with room for detours. Structured enough to build depth. Open enough to follow what's interesting.</p>
+          </div>
+
+          <div class="immersive-panel" role="listitem">
+            <div class="immersive-panel__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="immersive-panel__title">Live Feedback Loops</h3>
+            <p class="immersive-panel__body">Students see consequences immediately. What a model produces when prompted differently. What a sensor reads when conditions shift.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — CURRENT STATUS
+  ═══════════════════════════════════════════ -->
+  <section class="status" id="status" aria-label="Current system status">
+    <div class="section-container">
+
+      <div class="status__inner reveal" data-delay="0">
+        <span class="section-label">Current Status</span>
+
+        <div class="status__grid">
+
+          <div class="status-block">
+            <div class="status-block__indicator running" aria-label="Status: active"></div>
+            <span class="status-block__label">Classroom Sessions</span>
+            <span class="status-block__value">Active</span>
+          </div>
+
+          <div class="status-block">
+            <div class="status-block__indicator limited" aria-label="Status: limited"></div>
+            <span class="status-block__label">Public Access</span>
+            <span class="status-block__value">Intentionally Restricted</span>
+          </div>
+
+          <div class="status-block">
+            <div class="status-block__indicator running" aria-label="Status: online"></div>
+            <span class="status-block__label">Core Systems</span>
+            <span class="status-block__value">Online</span>
+          </div>
+
+          <div class="status-block">
+            <div class="status-block__indicator evolving" aria-label="Status: evolving"></div>
+            <span class="status-block__label">Ecosystem</span>
+            <span class="status-block__value">Continuously Evolving</span>
+          </div>
+
+        </div>
+
+        <div class="status__statement reveal" data-delay="1">
+          <p>
+            This ecosystem is not a product waiting to launch. It is an ongoing, living curriculum — shaped continuously by the sessions happening inside it. Public access remains limited by design.
+          </p>
+          <p>
+            If you're here, you're early.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="section-container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <span class="footer__name">Gurnoor Singh</span>
+          <span class="footer__tagline">AI Learning Ecosystem — gurnoorsingh.in</span>
+          <span class="footer__meta">Product by Synaptix Technologies</span>
+        </div>
+        <div class="footer__right">
+          <span class="footer__note">Private environment. Classroom-first.</span>
+        </div>
+      </div>
+      <div class="footer__base">
+        <span class="footer__legal">© 2026 Synaptix Technologies. All rights reserved. Built by Gurnoor Singh.</span>
+        <span class="footer__build" aria-label="Build status">Systems nominal.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
